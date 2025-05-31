@@ -1,0 +1,287 @@
+
+:root{
+--color-black: #000000;
+--color-davy-grey: #5c5c5c;
+--color-dim-grey: #707070;
+--color-Gamboge: #f29602;
+--color-grey: #7a7a7a;
+--color-Orange: #fca311;
+--color-Oxford-Blue: #14213d;
+--color-Platinum: #e5e5e5;
+--color-silver: #b8b8b8;
+--color-True-blue: #3c64b9;
+--color-white: #ffffff;
+--color-Xanthous: #fdc05d;
+--color-YlnMn-blue: #32519a;
+}
+
+
+p{
+	color: var(--color-white);
+}
+
+a{
+	text-decoration: none;
+}
+
+@font-face {
+	font-family: 'Roboto';
+	src: url('./fonts/Roboto-VariableFont_wdth\,wght.ttf') format('trueType'),
+		url('./fonts/Roboto-Italic-VariableFont_wdth\,wght.ttf') format('trueType');
+	font-display: swap; 
+}
+
+*{
+	font-family: 'Roboto';
+	box-sizing: border-box;
+}
+
+body{
+	background: url("/assets/background_main.png");
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	margin: 0;
+}
+
+
+
+.mainPage{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	width: 1000px;
+	padding:75px;
+	overflow: hidden;
+}
+.mainPageBackground{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	width: 90%;
+	height: 95%;
+	background: linear-gradient(rgba(0,0,0,0) , var(--color-Oxford-Blue));
+	filter: blur(25px);
+	z-index: -1;
+	pointer-events: none;
+}
+
+
+.pageTitle{
+	color:var(--color-Orange);
+	font-size: 128px;
+	text-shadow: 0 0 25px var(--color-Gamboge) ;
+}
+
+.defaultForm{
+	margin: 10px auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.defaultInput{
+	border: 1px var(--color-Orange) solid;
+	height: 75px;
+	width: 400px;
+	padding-left: 30px;
+	background: linear-gradient(var(--color-Platinum) , var(--color-davy-grey));
+	margin-bottom: 15px;
+	font-size: 24px;
+	font-family: 'Roboto';
+	color: var(--color-Xanthous) 
+}
+
+.defaultInput::placeholder{
+	color: var(--color-Gamboge);
+	font-size: 24px;
+}
+
+.defaultBtn {
+	border: 2px var(--color-Orange) solid;
+	width: 150px;
+	height: 50px;
+	background-color: var(--color-Xanthous);
+	font-size: 24px;
+	color: var(--color-YlnMn-blue);
+	font-weight: 500;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.defaultBtn:hover{
+	transform: translateY(-2px);
+	box-shadow: 0 0 30px var(--color-Gamboge) ;
+}
+
+.defaultBtn:active{
+	transform: translateY(2px);
+}
+
+.signUpLogInDiv{
+	width: 400px;
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 15px;
+}
+
+.largeBtn{
+	width: 401px; /* 1 px kide rom ar borderit zustad gaswordes */
+}
+
+.description{
+	color: var(--color-True-blue)
+}
+
+.navbar{
+	position: absolute;
+	top:0px;
+	height: 100px;
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	margin-bottom: 50px;
+	align-items: center;
+	justify-content: space-between;
+	background: linear-gradient(var(--color-Oxford-Blue) ,var(--color-True-blue)) ;
+}
+
+.navbar > ul{
+	display: flex;
+	list-style: none;
+	gap: 1rem; 
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left:50%;
+	transform: translateX(-50%);
+}
+
+.navbar > h1 > a, .navbar > ul > li > a {
+	color:var(--color-Orange);
+	margin: 50px;
+	font-size: 36px;
+}
+
+.navbar > img {
+	width: 35px;
+	height: 35px;
+	filter: brightness(0) saturate(100%) invert(60%) sepia(28%) saturate(3960%) hue-rotate(6deg) brightness(103%) contrast(98%);
+	cursor: pointer;
+	margin-right: 40px;
+}
+
+.defaultRange{
+	width: 150px; 
+	height: 15px;
+	accent-color: var(--color-Orange);
+	background-color: var(--color-grey);
+}
+
+.volume{
+	position: fixed;
+	bottom: 30px;
+	right: 40px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.volume > input{
+	opacity: 0;
+	transform: translateY(-70px) rotate(-90deg);
+	transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.volume:hover > input{
+	opacity: 1;
+}
+
+.volume > input{
+	transform: translateY(-70px) rotate(-90deg);
+}
+
+.volume > img{
+	width: 35px;
+	height: 35px;
+	filter: brightness(0) saturate(100%) invert(60%) sepia(28%) saturate(3960%) hue-rotate(6deg) brightness(103%) contrast(98%);
+	cursor: pointer;
+}
+
+
+@media(max-height: 800px){
+	.mainPage{
+		margin-top: 10vh;
+		padding-top: 10vh;
+	}
+}
+
+@media(max-width: 1200px){
+	.navbar{
+		flex-direction: column;
+		align-items: center;
+	}
+	.navbar > ul {
+		display: flex;
+		top: 60%;
+	}
+	.navbar > ul > li > a {
+		font-size: 24px;
+		margin: 5px;
+		display: block;
+	}
+
+	.navbar > img{
+		position: absolute;
+		width: 25px;
+		height: 25px;
+		margin: 0;
+		right: 15px;
+		top: 4vh
+	}
+	.volume{
+		flex-direction: row;
+	}
+	.volume > input{
+		order: 2;
+		opacity: 100;
+		transform: none;
+		margin-left: 5px;
+	}
+
+
+}
+
+@media(max-width: 1000px ){
+	.pageTitle{
+		font-size: 4vh;
+	}
+	.mainPage{
+		padding: 0.5vh;
+	}
+	.volume{
+		position: absolute;
+		bottom: 15px;
+		left: 10px;
+		margin: 0;
+	}
+}
+
+@media(max-width: 400px){
+	.defaultInput{
+		width: 350px;
+	}
+	.defaultBtn{
+		width: 100px;
+		font-size: 18px;
+	}
+	.signUpLogInDiv{
+		width: 350px;
+	}
+	.largeBtn{
+		width:351px;
+	}
+}
