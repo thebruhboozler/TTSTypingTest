@@ -36,8 +36,13 @@ a{
 	box-sizing: border-box;
 }
 
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
 body{
-	background: url("/assets/background_main.png");
+	background: url("./assets/background_main.png");
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -136,6 +141,11 @@ body{
 	color: var(--color-True-blue)
 }
 
+.playArea{
+	width: 93% ;
+	height: 90vh;
+}
+
 .navbar{
 	position: absolute;
 	top:0px;
@@ -181,6 +191,87 @@ body{
 	background-color: var(--color-grey);
 }
 
+.uploadPage{
+	display: flex;
+	gap: 5em;
+	position: absolute;
+	top: 15%;
+}
+
+.textInput {
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.textInput > textarea{
+	background-color: var(--color-Oxford-Blue);
+	width: 750px;
+	height: 500px;
+	border: 1px var(--color-Orange) solid;
+	border-radius: 50px;
+	padding: 50px;
+	color: var(--color-white);
+	margin: 10px;
+}
+
+.recorded{
+	padding: 0px;
+	list-style-type: inside;
+}
+
+.wordRecording{
+	display: flex;
+	background: linear-gradient(var(--color-silver) , var(--color-dim-grey));
+	justify-content: space-between;
+	width: 330px;
+	height: 100px;
+	border-radius: 15px;
+	margin-top: 10px;
+	align-items: center;
+	padding: 15px;
+}
+
+.wordRecording > p{
+	font-size: 36px;
+}
+
+.wordRecording > div > button{
+	width: 50px;
+	height: 50px;
+	background-color: var(--color-Orange);
+	border-radius: 25px;
+	border:none;
+	margin: 3px;
+}
+
+
+
+.voiceInput {
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.voiceInput > div{
+	width: 400px;
+	height: 700px;
+	border: 1px var(--color-Orange) solid;
+	background-color: var(--color-Oxford-Blue);
+	border-radius: 50px;
+	padding: 50px;
+	margin: 10px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.voiceInput > .defaultBtn{
+	width: 250px;
+}
+
 .volume{
 	position: fixed;
 	bottom: 30px;
@@ -207,7 +298,7 @@ body{
 .volume > img{
 	width: 35px;
 	height: 35px;
-	filter: brightness(0) saturate(100%) invert(60%) sepia(28%) saturate(3960%) hue-rotate(6deg) brightness(103%) contrast(98%);
+	filter: brightness(0) saturate(100%) invert(60%) sepia(28%) saturate(3960%) hue-rotate(6deg) brightness(103%) contrast(98%); /* --colour-orange */
 	cursor: pointer;
 }
 

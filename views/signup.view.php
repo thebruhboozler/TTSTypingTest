@@ -1,12 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-  	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
-	<link rel="stylesheet" href="./styles.css">
-	<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
-	<title>TTStypingTest</title>
+<?php require("./views/partials/head.php") ?>
 </head>
 <body>
 	<main class="mainPage">
@@ -20,7 +15,6 @@
 			<input type="password" name="password" placeholder="password" class="defaultInput"/>
 			<input type="password" placeholder="repeat password" class="defaultInput"/>
 			
-
 			<button type="submit" id="loginBtn" class="defaultBtn largeBtn">Sign up</button>
 		</form>
 	</main>
