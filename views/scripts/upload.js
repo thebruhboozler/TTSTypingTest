@@ -1,6 +1,8 @@
+let words = []
+let recordedChunks=[]
+let mediaRecorder
 
 
-let mediaRecorder;
 
 function generateUniqueWordEntry(word){
 	let entry = document.createElement("li")
@@ -13,19 +15,8 @@ function generateUniqueWordEntry(word){
 	
 	let buttons = document.createElement("div")
 	let recordBtn = document.createElement("button")
-
-	recordBtn.addEventListener("click", async ()=>{
-		let stream 
-		try{
-			steam = await navigator.mediaDevices.getUserMedia({audio: true})
-		}catch(err){
-			alert("microphne access denied")
-		}
-		mediaRecorder = new mediaRecorder(stream)
-		
-	})
-
 	let recordIcon = document.createElement("img")
+
 	recordIcon.src = "./views/assets/regular-microphone.svg"
 	recordIcon.style.width = "35px"
 	recordIcon.style.height = "35px"
@@ -52,6 +43,89 @@ function generateUniqueWordEntry(word){
 	uploadBtn.addEventListener("click" , () => audioInput.click())
 	entry.classList.add("wordRecording")
 	entry.appendChild(audioInput)
+
+	let audioPlayBack = document.createElement("audio");
+	audioPlayBack.style.display="none"
+	entry.appendChild(audioPlayBack)
+
+	recordBtn.addEventListener("click", async ()=>{
+		if(mediaRecorder && mediaRecorder.state === 'recording'){
+			await stopRecording(mediaRecorder)
+			recordIcon.src = "./views/assets/icons-retry.svg"
+			recordIcon.style.width="35px"
+			recordIcon.style.height="35px"
+		
+
+			if(buttons.children.length != 3) {
+				let playPause = document.createElement('button')
+				let playPauseIcon =document.createElement('img')
+				playPauseIcon.src="./views/assets/regular-play.svg"
+				playPauseIcon.style.width="35px"
+				playPauseIcon.style.height="35px"
+			
+				audioPlayBack.addEventListener("ended",() => playPauseIcon.src="./views/assets/regular-play.svg" )
+				playPause.appendChild(playPauseIcon)
+				buttons.appendChild(playPause)
+
+				playPause.addEventListener('click', () =>{
+					if(playPauseIcon.src.includes("play")){
+						audioPlayBack.play();
+						playPauseIcon.src = "./views/assets/regular-pause.svg"
+					}
+					else {
+						playPauseIcon.src ="./views/assets/regular-play.svg" 
+						audioPlayBack.pause();
+					}
+				})
+			}
+
+
+			const file = words.find(e =>{ 
+				return e.word == word
+			})
+			const url = URL.createObjectURL(file.file)
+			audioPlayBack.src = url
+
+			
+			return
+		}
+
+		recordIcon.src = "./views/assets/solid-square.svg"
+		recordIcon.style.width="15px"
+		recordIcon.style.height="15px"
+
+		recordedChunks = []
+		let stream 
+		try{
+			stream = await navigator.mediaDevices.getUserMedia({audio: true})
+		}catch(err){
+			alert("microphne access denied")
+		}
+		mediaRecorder = new MediaRecorder(stream)
+		mediaRecorder.ondataavailable = (e) =>{
+			if(e.data.size > 0) recordedChunks.push(e.data)
+		}
+			
+		function stopRecording(mediaRecorder){
+			return new Promise((resolve)=>{
+				mediaRecorder.onstop = () =>{
+					const audio = new Blob(recordedChunks, {type: 'audio/webm'})
+					const file = new File([audio], `${word}.webm`, {type: 'audio/webm'})
+					const found = words.find(e => e.word == word);
+					if(!found) words.push({file,word})
+					else{
+						const index = words.indexOf(found);
+						words[index] = { file, word };
+					}
+					resolve()
+				}
+				mediaRecorder.stop()
+			})
+		}
+
+		mediaRecorder.start()
+	})
+
 
 	return entry
 }
