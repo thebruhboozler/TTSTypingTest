@@ -13,6 +13,7 @@
 			'/settings' => './views/scripts/settings.js',
 			'/upload' => './views/scripts/upload.js',
 			'/login' => './views/scripts/index.js',
+			'/random' => './views/scripts/random.js'
 		];
 		$scriptFile = $routes[$path];
 		if ($scriptFile) {

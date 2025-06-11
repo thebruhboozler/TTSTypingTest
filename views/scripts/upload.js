@@ -97,9 +97,8 @@ function generateUniqueWordEntry(word){
 
 			if(buttons.children.length != 3) {
 				addPlayBackButton()
-				return;
 			}
-			updateRecordedWord(word)			
+			updateRecordedWord(word)		
 			return
 		}
 		recordIcon.src = "./views/assets/solid-square.svg"
