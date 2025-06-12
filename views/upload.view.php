@@ -13,7 +13,7 @@
 			<div class="recordings">
 				<ul id="recordings" class="recorded"></ul>
 			</div>
-			<button type = "submit" class="defaultBtn">Submit Recordings </button>
+			<button type = "submit" class="defaultBtn" id="submitBtn">Submit Recordings </button>
 		</div>
 	</main>
 

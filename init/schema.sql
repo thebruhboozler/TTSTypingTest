@@ -8,7 +8,7 @@ CREATE TABLE users(
 CREATE TABLE word(
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	word_data BLOB,
-	file_type VARCHAR(6),
+	file_type VARCHAR(15),
 	word VARCHAR(50)
 );
 

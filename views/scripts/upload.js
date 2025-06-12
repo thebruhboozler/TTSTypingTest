@@ -147,22 +147,42 @@ function generateUniqueWordEntry(word){
 }
 
 document.getElementById("textBtn").addEventListener("click" , async () => {
-	let text = document.getElementById("textBtn").textContent
-	let respone = await fetch("/api/uniqueWords" , {
+	let text = document.getElementById("text").value
+	let response = await fetch("/api/uniqueWords" , {
 		method: "POST",
+		headers:{
+			"Content-Type":"application/json",
+		},
 		body: JSON.stringify({
 			text: text,
 		}),
 	})
-	let uniqueWords = []
-	if(!respone.ok){
-		uniqueWords = ["arch" , "linux" , "stuffy"]
-	}
-	
+	if (!response.ok) return;
+
+	let uniqueWords = await response.json()
+
 	let uniqueWordEntries = []
 	uniqueWords.forEach( e => uniqueWordEntries.push(generateUniqueWordEntry(e)))
 	
 	let displayList = document.getElementById("recordings")
 	displayList.innerHTML=''
 	uniqueWordEntries.forEach( e => displayList.appendChild(e))
+})
+
+
+document.getElementById("submitBtn").addEventListener("click",async ()=>{
+	let displayListLength = document.getElementById("recordings").children.length
+	if(words.length != displayListLength) return;
+
+	const formData = new FormData();	
+	words.forEach(e=> formData.append(e.word, e.file))
+
+	let response = await fetch("/api/uploadRun",{
+		method:"POST",
+		body: formData
+	})
+
+	if (!response.ok) return;
+	let runId = await response.json()
+	//window.location.assign(`/play&q=${runId}`)
 })

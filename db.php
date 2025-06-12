@@ -19,4 +19,6 @@ function getDbConnection() {
 	return $conn;
 }
 
+
 $db = getDbConnection();
+
