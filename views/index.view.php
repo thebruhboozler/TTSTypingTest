@@ -11,7 +11,7 @@
 			<input type="password" name="password" placeholder="password" class="defaultInput"/>
 			<div class="signUpLogInDiv">
 				<button type="submit" id="loginBtn" class="defaultBtn"> Log in</button>
-				<button type="button" id="signUpBtn" class="defaultBtn">Sign up</button>
+				<a href="/signup" id="signUpBtn" class="defaultBtn">Sign up</a>
 			</div>
 			<button type="button" id="guestBtn" class="defaultBtn largeBtn">continue as guest</button>
 		</form>

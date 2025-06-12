@@ -12,6 +12,7 @@
 			'/endless' => './views/scripts/endless.js',
 			'/settings' => './views/scripts/settings.js',
 			'/upload' => './views/scripts/upload.js',
+			'/signup' => './views/scripts/signup.js',
 			'/login' => './views/scripts/index.js',
 			'/random' => './views/scripts/random.js'
 		];
@@ -20,5 +21,6 @@
 			echo "<script defer src=\"".$scriptFile."\"></script>";
 		}
 	?>
+	<script defer src="./views/scripts/generic.js"></script>
 	<title>TTStypingTest</title>
 </head>
