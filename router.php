@@ -18,6 +18,7 @@ $routes =[
 	'/api/uniqueWords' => ['POST' => 'api/uniqueWords.php'],
 	'/api/login' => ['POST' => 'api/login.php'],
 	'/api/uploadRun' => ['POST' => 'api/uploadRun.php'],
+	'/api/getRun' => ['GET' => 'api/getRun.php'],
 ];
 
 if (array_key_exists($path , $routes )){

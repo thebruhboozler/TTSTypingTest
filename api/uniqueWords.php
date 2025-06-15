@@ -12,7 +12,7 @@ function getWordsNotInDatabase(array $words): array {
 
 
 	$placeholders = implode(',', array_fill(0, count($words), '?'));
-	$stmt = $db->prepare("SELECT word FROM word WHERE word IN ($placeholders)");
+	$stmt = $db->prepare("SELECT word FROM words WHERE word IN ($placeholders)");
 	$types= str_repeat('s',count($words));
 
 	$refs = [];

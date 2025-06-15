@@ -5,20 +5,22 @@ CREATE TABLE users(
 	salty_password VARCHAR(64)
 );
 
-CREATE TABLE word(
+CREATE TABLE words(
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	word_data BLOB,
 	file_type VARCHAR(15),
 	word VARCHAR(50)
 );
 
-CREATE TABLE run(
+CREATE TABLE runs(
 	id INT AUTO_INCREMENT PRIMARY KEY
 );
 
 CREATE TABLE run_word(
-	run_Id INT,
-	word_Id INT,
-	FOREIGN KEY (run_id) REFRENCES run(id),
-	FOREIGN KEY (word_id) REFRENCES word(id)
+	run_id INT,
+	word_id INT,
+	position INT, 
+	PRIMARY KEY (run_id, position),
+	FOREIGN KEY (run_id) REFERENCES  runs(id),
+	FOREIGN KEY (word_id) REFERENCES words(id)
 );

@@ -174,7 +174,12 @@ document.getElementById("submitBtn").addEventListener("click",async ()=>{
 	let displayListLength = document.getElementById("recordings").children.length
 	if(words.length != displayListLength) return;
 
-	const formData = new FormData();	
+	const formData = new FormData();
+
+	let text = document.getElementById("text").value
+	let textFile = new File([text], "text",{type: "text/plain"})
+	
+	formData.append("text",textFile)
 	words.forEach(e=> formData.append(e.word, e.file))
 
 	let response = await fetch("/api/uploadRun",{
