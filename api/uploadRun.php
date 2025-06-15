@@ -57,4 +57,5 @@ foreach($words as $i => $w){
 
 echo json_encode([
 	'status' => 'done',
+	'runId' => "$inserId",
 ]);

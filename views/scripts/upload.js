@@ -188,6 +188,6 @@ document.getElementById("submitBtn").addEventListener("click",async ()=>{
 	})
 
 	if (!response.ok) return;
-	let runId = await response.json()
-	//window.location.assign(`/play&q=${runId}`)
+	let parseedResponse = await response.json()
+	window.location.assign(`/play?id=${parseedResponse.runId}`)
 })

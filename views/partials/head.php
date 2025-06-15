@@ -6,19 +6,21 @@
 	<meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
 	<?php  
 		$routes =[
-			'/' => './views/scripts/index.js',
-			'/home' => './views/scripts/home.js',
-			'/play' => './views/scripts/play.js',
-			'/endless' => './views/scripts/endless.js',
-			'/settings' => './views/scripts/settings.js',
-			'/upload' => './views/scripts/upload.js',
-			'/signup' => './views/scripts/signup.js',
-			'/login' => './views/scripts/index.js',
-			'/random' => './views/scripts/random.js'
+			'/' => ['./views/scripts/index.js'],
+			'/home' => ['./views/scripts/home.js'],
+			'/play' => ['https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js' , './views/scripts/play.js'],
+			'/endless' => ['./views/scripts/endless.js'],
+			'/settings' => ['./views/scripts/settings.js'],
+			'/upload' => ['./views/scripts/upload.js'],
+			'/signup' => ['./views/scripts/signup.js'],
+			'/login' => ['./views/scripts/index.js'],
+			'/random' => ['./views/scripts/random.js'],
 		];
 		$scriptFile = $routes[$path];
+
 		if ($scriptFile) {
-			echo "<script defer src=\"".$scriptFile."\"></script>";
+			foreach($scriptFile as $script)
+				echo "<script defer src=\"".$script."\"></script>";
 		}
 	?>
 	<script defer src="./views/scripts/generic.js"></script>

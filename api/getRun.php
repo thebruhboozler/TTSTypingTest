@@ -25,6 +25,7 @@ foreach($rows as $row){
 	}
 }
 
+$text =substr($text, 0, -1);
 
 $zip = new ZipArchive();
 $tmpZipPath = tempnam(sys_get_temp_dir(), 'zip');

@@ -271,6 +271,69 @@ body{
 	width: 250px;
 }
 
+.playText{
+	position: absolute;
+	top:40%;
+	left: 10%;
+	font-size: 36px;
+	color: var(--color-white);
+	max-width: 85%;
+}
+
+.stopwatch{
+	position: absolute;
+	top: 25%;
+	left:50%;
+	transform: translateX(-50%);
+	font-size: 48px;
+	color:var(--color-Orange);
+}
+
+.btnHolder{
+	display: none;
+	flex-direction: row;
+}
+
+.animate{
+	animation: spaceOut 700ms forwards;
+}
+
+.btnHolder > img{
+	height: 35px;
+	width: 35px;
+	filter: brightness(0) saturate(100%) invert(60%) sepia(28%) saturate(3960%) hue-rotate(6deg) brightness(103%) contrast(98%); /* --colour-orange */
+	cursor: pointer;
+}
+
+@keyframes spaceOut{
+	0%{
+		gap:5px;
+		opacity: 0%;
+	}
+	100%{
+		gap:70px;
+		opacity: 100%;
+	}
+}
+
+.cursor{
+	display: inline-block;
+	color: var(--color-Xanthous);
+	transform: scaleX(0.65);
+	animation: blink 500ms ease-in-out infinite;
+}
+
+@keyframes blink{
+	0%{
+		opacity: 0%;
+	}
+	50%{
+		opacity: 100%;
+	}
+	100%{
+		opacity: 0%;
+	}
+}
 .volume{
 	position: fixed;
 	bottom: 30px;
@@ -301,6 +364,9 @@ body{
 	cursor: pointer;
 }
 
+.mainPage > audio{
+	display: none;
+}
 
 @media(max-height: 800px){
 	.mainPage{
