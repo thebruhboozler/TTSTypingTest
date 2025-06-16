@@ -292,6 +292,10 @@ body{
 .btnHolder{
 	display: none;
 	flex-direction: row;
+	position: absolute;
+	left:50%;
+	bottom: 20%;
+	transform: translateX(-50%);
 }
 
 .animate{
