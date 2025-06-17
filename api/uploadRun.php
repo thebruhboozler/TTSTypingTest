@@ -5,14 +5,6 @@ header('Content-Type: application/json');
 $db = getDbConnection();
 $finfo = finfo_open(FILEINFO_MIME_TYPE);
 
-
-function uploadText($content){
-
-	$words = implode(' ' , $content);
-	
-	
-}
-
 foreach($_FILES as $word => $file){
 	if ($file['error'] !== UPLOAD_ERR_OK){
 		http_response_code(400);

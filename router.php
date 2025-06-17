@@ -13,6 +13,7 @@ $routes =[
 	'/endless' => ['GET' => 'controllers/endless.php'],
 	'/settings' => ['GET' => 'controllers/settings.php'],
 	'/upload' => ['GET' => 'controllers/upload.php'],
+	'/random' => ['GET' => 'controllers/random.php'],
 	'/login' => ['GET' => 'controllers/index.php'],
 	'/signup' => ['GET' => 'controllers/signup.php'],
 	'/api/uniqueWords' => ['POST' => 'api/uniqueWords.php'],

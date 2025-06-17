@@ -8,8 +8,8 @@
 		$routes =[
 			'/' => ['./views/scripts/index.js'],
 			'/home' => ['./views/scripts/home.js'],
-			'/play' => ['https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js' , './views/scripts/play.js'],
-			'/endless' => ['./views/scripts/endless.js'],
+			'/play' => ['https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js' , './views/scripts/play.js','./views/scripts/common.play.js' ],
+			'/endless' => ['https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js' , './views/scripts/endless.js','./views/scripts/common.play.js' ],
 			'/settings' => ['./views/scripts/settings.js'],
 			'/upload' => ['./views/scripts/upload.js'],
 			'/signup' => ['./views/scripts/signup.js'],

@@ -19,6 +19,5 @@ foreach ($files as $file) {
 	$stmt->send_long_data(0,$fileContent);
 
 	$stmt->execute();
-	
 	$stmt->close();
 }
