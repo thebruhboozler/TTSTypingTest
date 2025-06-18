@@ -60,3 +60,4 @@ function getExtensionFromMime($mime) {
 	];
 	return $map[$mime] ?? '';
 }
+

@@ -2,7 +2,7 @@ CREATE TABLE users(
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	username VARCHAR(36),
 	email VARCHAR(100),
-	salty_password VARCHAR(64)
+	salty_password VARCHAR(60)
 );
 
 CREATE TABLE words(
