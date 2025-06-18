@@ -5,8 +5,8 @@
 --color-dim-grey: #707070;
 --color-Gamboge: #f29602;
 --color-grey: #7a7a7a;
---color-Orange: #fca311;
---color-Oxford-Blue: #14213d;
+--color-Orange: rgb(252,163,17);
+--color-Oxford-Blue: hsl(221, 51%, 16%);
 --color-Platinum: #e5e5e5;
 --color-silver: #b8b8b8;
 --color-True-blue: #3c64b9;

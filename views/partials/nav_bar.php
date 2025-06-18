@@ -5,7 +5,7 @@
 		<li><a href="/endless"> Endless </a> </li>
 		<li><a href="/random"> Random </a> </li>
 	</ul>
-	<img src="./views/assets/regular-gear.svg" id="settings">
+	<img src="./views/assets/regular-gear.svg" id="settings" alt="gear icon">
 </nav>
 
 
